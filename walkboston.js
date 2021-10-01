@@ -1,3 +1,4 @@
+//get needed parameters
 function renderPosts(boston, container) {
   var people = boston.data;
   const len = boston.data.length;
@@ -8,21 +9,21 @@ function renderPosts(boston, container) {
   }
   container.innerHTML = '<ul id = "boston">' + html + '</ul>';
 }
-
+//find top 5 earners
 function renderTopSalaries(data, container) {
-  
   var people = boston.data;
   var topSalaries = people.sort((a, b) => b[11] - a[11]).slice(0, 5);
   const len = topSalaries.length;
   var html = '';
-  for (let i = 0; i < len; i++) {
+    for (let i = 0; i < len; i++) {
     html +=
       '<li class="top">' + '<h2>' + topSalaries[i][8] +  '</h2>' +
       '<h3>' + topSalaries[i][11] + '</h3>';
-  }
-  container.innerHTML = '<ul id = "topSalaries">' + html + '</ul>';
+      }
+      container.innerHTML = '<ul id = "topSalaries">' + html + '</ul>';
 }
 
+//find people who earn over 200K
 function renderTopEmployees(data, container) {
   var people = boston.data;
   var topEmployees = people.filter((a) => a[11] > 200000);
@@ -34,6 +35,6 @@ function renderTopEmployees(data, container) {
   }
   container.innerHTML += '<ul id = "topEmployees">' + html + '</ul>';
 }
-
-renderTopSalaries(boston, document.getElementById('container')); //step 1 solution
-renderTopEmployees(boston, document.getElementById('container')); //step 2 solution
+//Assign html element to show on a page
+renderTopSalaries(boston, document.getElementById('container')); 
+renderTopEmployees(boston, document.getElementById('container')); 
